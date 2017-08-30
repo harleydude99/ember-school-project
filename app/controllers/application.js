@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
     },
     wasClicked(elementName){
       alert(`${elementName} was clicked!`);//example of string interpolation w ``
+    },
+    toggleAvailability(food){
+      Ember.set(food, 'isAvailable', !food.isAvailable);
     }
   },
   myFunction: function(){ //equivalent of myFunction(){}

@@ -1,15 +1,19 @@
-<h1 {{action "wasClicked" "Heading"}}>{{appName}}</h1>
+<h1>{{appName}}</h1>
 <p/>
 Our restaurant is {{restaurant.name}}. We've been open for {{restaurant.yearsOpen}} year(s).
 <p id="explanation">Menu Tracker helps you see what dishes are available today.</p>
-<button {{action "wasClicked" "Button"}}>Click me!</button>
+
 <p/>
 <ul>
   {{#each foods as |food|}}
     {{#if food.isAvailable}}
-      <li>{{food.name}}!</li>
+      <li>{{food.name}}!
+      <button {{action "toggleAvailability" food}}>Make Unavailable</button>
+      </li>
     {{else}}
-      <li class="not-available">{{food.name}}</li>
+      <li class="not-available">{{food.name}}
+        <button {{action "toggleAvailability" food}}>Make Available</button>
+      </li>
     {{/if}}
 
   {{/each}}
