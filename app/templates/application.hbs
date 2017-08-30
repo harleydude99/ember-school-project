@@ -1,5 +1,8 @@
-<h1>{{appName}}</h1>
+<h1 {{action "wasClicked" "Heading"}}>{{appName}}</h1>
+<p/>
+Our restaurant is {{restaurant.name}}. We've been open for {{restaurant.yearsOpen}} year(s).
 <p id="explanation">Menu Tracker helps you see what dishes are available today.</p>
+<button {{action "wasClicked" "Button"}}>Click me!</button>
 <p/>
 <ul>
   {{#each foods as |food|}}

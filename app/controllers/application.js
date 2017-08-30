@@ -9,5 +9,17 @@ export default Ember.Controller.extend({
     {name: 'Pizza', isAvailable: false},
     {name: 'Vegetables', isAvailable: true},
     {name: 'Fruit Smoothie', isAvailable: false}
-  ]
+  ],
+  restaurant: {name: 'Our Awesome Restaurant', yearsOpen: 1},
+  actions: {
+    buttonClick(){
+      alert('button was clicked!');
+    },
+    wasClicked(elementName){
+      alert(`${elementName} was clicked!`);//example of string interpolation w ``
+    }
+  },
+  myFunction: function(){ //equivalent of myFunction(){}
+
+  }
 });
