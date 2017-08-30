@@ -1,5 +1,24 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h1>{{appName}}</h1>
+<p id="explanation">Menu Tracker helps you see what dishes are available today.</p>
+<p/>
+<ul>
+  {{#each foods as |food|}}
+    {{#if food.isAvailable}}
+      <li>{{food.name}}!</li>
+    {{else}}
+      <li class="not-available">{{food.name}}</li>
+    {{/if}}
 
-{{outlet}}
+  {{/each}}
+</ul>
+<style>
+  li.not-available {
+    color: red;
+  }
+  #explanation {
+    text-decoration: underline;
+  }
+  li:first-of-type{
+    color: green;
+  }
+</style>
