@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
   appName: 'Menu Tracker',
   restaurant: {name: 'Our Awesome Restaurant', yearsOpen: 1},
   newItem: null,
+  menuLength: Ember.computed.alias('model.length'),
+  availableItems: Ember.computed.filterBy('model', 'isAvailable', true), //value to filter by is 3rd arg
   actions: {
     buttonClick(){
       alert('button was clicked!');
@@ -22,6 +24,9 @@ export default Ember.Controller.extend({
         name: this.get('newItem')
       }).save()
       this.set('newItem', '')
+    },
+    destroyItem(food){
+      food.destroyRecord()
     }
   },
   myFunction: function(){ //equivalent of myFunction(){}
