@@ -9,7 +9,7 @@ Our restaurant is {{restaurant.name}}. We've been open for {{restaurant.yearsOpe
   {{#each model as |food|}}
     {{#if food.isAvailable}}
       <li>
-        {{#link-to 'food' food.id}}{{food.name}}{{/link-to}}!
+        {{#link-to 'foods.food' food.id}}{{food.name}}{{/link-to}}!
         <button {{action "toggleAvailability" food}}>Make Unavailable</button>
       </li>
     {{else}}
@@ -24,3 +24,5 @@ Our restaurant is {{restaurant.name}}. We've been open for {{restaurant.yearsOpe
 <hr/>
 {{input value=newItem}}
 <button {{action 'saveNewItem'}}>Save</button>
+
+{{outlet}}
