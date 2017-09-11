@@ -9,18 +9,14 @@
     <p/>
     <ul>
       {{#each model as |food|}}
-        {{#if food.isAvailable}}
-          <li>
-            {{#link-to 'foods.food' food.id}}{{food.name}}{{/link-to}}!
-            <button {{action "toggleAvailability" food}}>Make Unavailable</button>
-          </li>
-        {{else}}
-          <li class="not-available">{{food.name}}
-            <button {{action "toggleAvailability" food}}>Make Available</button>
-            <button {{action "destroyItem" food}}>Remove Food</button>
-          </li>
-        {{/if}}
-
+        <li class="{{if food.isAvailable '' 'not-available'}}">
+          {{#link-to 'foods.food' food.id}}{{food.name}}{{/link-to}}
+          {{#if food.isAvailable}}
+              !<button {{action "toggleAvailability" food}}>Make Unavailable</button>
+          {{else}}
+              <button {{action "toggleAvailability" food}}>Make Available</button>
+          {{/if}}
+        </li>
       {{/each}}
     </ul>
     <hr/>

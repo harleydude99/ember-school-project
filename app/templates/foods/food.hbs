@@ -1,3 +1,6 @@
 
 <h1>{{model.name}}</h1>
 <p>{{model.description}}</p>
+{{link-to 'Edit this food now.' 'foods.food.edit' model.id}}
+
+<button {{action "destroyItem" model}}>Remove Food</button>
